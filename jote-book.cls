@@ -1,3 +1,4 @@
+
 \ProvidesClass{jote-book}[2021/08/29, v1.0]
 
 
@@ -35,9 +36,11 @@
 \def\@booklanguage{}
 \def\@othercredits{}
 \def\@initialcredits{}
+\def\@headertitle{}
 \newcounter{@numberofthumbs}
 \setcounter{@numberofthumbs}{10}
 
+\newif\if@titleinheader
 \newif\if@smallauthor
 \newif\if@semantic
 \newif\if@google
@@ -73,7 +76,7 @@
 \newif\if@globalnochapterinheader
 
 
-\newcommand{\booktitle}[1]{\def\@booktitle{#1}}
+\newcommand{\booktitle}[1]{\def\@booktitle{#1}\def\@headertitle{#1}}
 \newcommand{\booksubtitle}[1]{\def\@booksubtitle{#1}}
 \newcommand{\bookauthor}[1]{\def\@bookauthor{#1}}
 \newcommand{\booksubject}[1]{\def\@booksubject{#1}}
@@ -109,6 +112,7 @@
 \newcommand{\jotesubtitle}[1]{\def\@jotesubtitle{#1}}
 \newcommand{\customchaptertitle}[1]{\def\@customchaptertitle{#1}}
 \newcommand{\nochapterinheader}{\@nochapterinheadertrue}
+\newcommand{\headertitle}[1]{\def\@headertitle{#1}}
 
 \newlength{\bleed}
 \setlength\bleed{0.3cm}
@@ -154,6 +158,8 @@
 \DeclareOption{pagenuminheader}{\@pagenuminheadertrue}
 \DeclareOption{nosectiontoc}{\@nosectiontoctrue}
 \DeclareOption{nochapterinheader}{\@globalnochapterinheadertrue \@nochapterinheadertrue}
+\DeclareOption{titleinheader}{\@titleinheadertrue}
+
 
 % size
 \DeclareOption{medium1}{
@@ -185,7 +191,7 @@
 %
 % \newfontfamily\lettrinefont{EB Garamond Initials}
 
-\newfontfamily\garamond{EB Garamond}[UprightFont={* Regular}, ItalicFont={* Italic}, BoldFont={* Medium}]
+% \newfontfamily\garamond{EB Garamond}[UprightFont={* Regular}, ItalicFont={* Italic}, BoldFont={* Medium}]
 % \newfontfamily\sans{HelveticaNeue.ttc}[
 % 	Ligatures=TeX,
 % 	UprightFeatures={FontIndex=0},
@@ -196,8 +202,55 @@
 \newfontfamily\overpass{Overpass}[UprightFont={* Light}, ItalicFont={* Light Italic}, BoldFont={* Bold}]
 
 \if@garamond
-  \setmainfont{EB Garamond}[ UprightFont={* Regular}, ItalicFont={* Italic}, BoldFont={* Medium}]
-  \newfontfamily\heading{EB Garamond}[ UprightFont={* Regular}, ItalicFont={* Italic}, BoldFont={* Medium}  ]
+  % \defaultfontfeatures{RawFeature={+axis={wght=100}}}
+  \setmainfont{EBGaramond}[
+    Extension={.ttf},
+    UprightFont={*-Regular},
+    ItalicFont={*-Italic},
+    BoldFont={*-Medium}
+  ]
+  % \setmainfont[
+  % % Extension={.ttf},
+  % % SmallCapsFont={EBGaramondSC08-Regular},
+  % % RawFeature={+c2sc},
+  % RawFeature={+smcp},
+  % % UprightFont={EBGaramond-Regular.otf},
+  % UprightFont={EBGaramond-VariableFont_wght.ttf},
+  % UprightFeatures={RawFeature={+axis={wght=500}}},
+  % ItalicFont={EBGaramond-Italic-VariableFont_wght.ttf},
+  % % BoldFont={EBGaramond-VariableFont_wght.ttf},
+  % % BoldFeatures={RawFeature={+axis={wght=700}}},
+  % % SmallCapsFont={EBGaramond-Regular.otf},
+  % % SmallCapsFeatures={Letters=SmallCaps},
+  % SmallCapsFont={EBGaramond-VariableFont_wght.ttf},
+  % SmallCapsFeatures={RawFeature={+smcp}},
+  % BoldItalicFeatures={RawFeature={+axis={wght=700}}},
+  % ItalicFeatures={RawFeature={+axis={wght=500}}}
+  % ]{EBGaramond-VariableFont_wght}
+
+  \newfontfamily\heading{EBGaramond}[
+    Extension={.ttf},
+    UprightFont={*-Regular},
+    ItalicFont={*-Italic},
+    BoldFont={*-Medium}
+  ]
+
+  % \newfontfamily\heading{EBGaramond-VariableFont_wght}[
+  % % Extension={.ttf},
+  % % SmallCapsFont={EBGaramondSC08-Regular},
+  % RawFeature={+smcp},
+  % % UprightFont={EBGaramond-Regular.otf},
+  % UprightFont={EBGaramond-VariableFont_wght.ttf},
+  % UprightFeatures={RawFeature={+axis={wght=500}}},
+  % ItalicFont={EBGaramond-Italic-VariableFont_wght.ttf},
+  % % BoldFont={EBGaramond-VariableFont_wght.ttf},
+  % % BoldFeatures={RawFeature={+axis={wght=700}}},
+  % % SmallCapsFont={EBGaramond-Regular.otf},
+  % SmallCapsFont={EBGaramond-VariableFont_wght.ttf},
+  % SmallCapsFeatures={RawFeature={+smcp}},
+  % BoldItalicFeatures={RawFeature={+axis={wght=700}}},
+  % ItalicFeatures={RawFeature={+axis={wght=500}}}
+  % ]
 \else
   \if@baskerville
     \setmainfont{Baskerville}
@@ -630,10 +683,11 @@
 
 \headstyles{bringhurst}
 
-\setsecheadstyle{\heading\scshape\lowercase}%\MakeLowercase}
+\setsecheadstyle{\heading\scshape\raggedright\lowercase}%\MakeLowercase}
 \setaftersubsubsecskip{1sp}
 \setbeforesubsubsecskip{-\baselineskip}
-\setsubsubsecheadstyle{\heading\scshape\MakeLowercase}
+\setsubsecheadstyle{\heading\raggedright\itshape}
+\setsubsubsecheadstyle{\heading\scshape\raggedright\MakeLowercase}
 \setsubsubsecindent{0pt}
 
 % \def\oldsubsec\subsubsection
@@ -643,7 +697,6 @@
 \else
   \setsecnumformat{\ \csname the#1\endcsname\ \ \  \raisebox{-.1em}{\textbullet}\ \ \ }
 \fi
-\setsubsecheadstyle{\heading\itshape}
 
 
 %% Part
@@ -669,10 +722,6 @@
   % \setstocksize{\dimexpr\stocky+2\bleed\relax}{\dimexpr\stockx+2\bleed\relax}
   % \settrims{\bleed}{\bleed}
   % \settrimmedsize{\stocky}{\stockx}{*}
-  % \pdfpageattr{
-  % /TrimBox [8.50 8.50 440.50 656.50]
-  % /BleedBox [0 0 449 665]
-  % }
 \else
   \setstocksize{\stocky}{\stockx}
   \settrimmedsize{\stockheight}{\stockwidth}{*}
@@ -700,7 +749,7 @@
 \else
   \if@mediumtwo
 
-    \setstocksize{\dimexpr 235mm + 2\bleed\relax}{\dimexpr 155mm + 2\bleed\relax}
+    \setstocksize{\dimexpr 235mm + 2\bleed\relax}{\dimexpr 155mm + \bleed\relax}
     \settrims{\bleed}{\bleed}
     \settrimmedsize{235mm}{155mm}{*}
     \setlength\stockx{170mm}
@@ -709,7 +758,9 @@
     \setlength\typeblocky{177mm}
     \defaultmargins
     \setulmargins{28mm}{*}{*}
-    \setlrmargins{*}{*}{1.414}
+    \setlrmargins{18.63mm}{*}{*}
+    % \setlrmargins{*}{*}{1.414}
+
 
     % \setlrmarginsandblock{26mm}{34mm}{*}
     % \setlrmarginsandblock{0.1111\stockx}{*}{2}
@@ -852,7 +903,7 @@
 
 \makeoddhead{ruled}{\makethumb}{}{\small{\heading\scshape\color{black!70}\MakeLowercase{\if@nochapterinheader\else\thechapter\ \   \fi\@jotetitle}\hfill\thepage}}
 
-\makeevenhead{ruled}{\small{\scshape\thepage\hfill\heading\color{black!70}\MakeLowercase\@runningauthor}}{}{\makethumb[-1]}
+\makeevenhead{ruled}{\small{\scshape\thepage\hfill\heading\color{black!70}\if@titleinheader\MakeLowercase\@headertitle\else\MakeLowercase\@runningauthor\fi}}{}{\makethumb[-1]}
 
 \newrobustcmd\B{\DeclareFontSeriesDefault[rm]{bf}{b}\bfseries}
 
@@ -904,10 +955,10 @@
       \fi%
       \@authoremail
       \ifdefempty{\@paperdoi}{}{\href{\@paperdoi}{\aiicon{doi}}}%
-      \colorlet{tiu}{tiuold}}}{}{\if@chapterhaspagenum \thepage\fi}
+      \colorlet{tiu}{tiuold}}}{}{\small\if@chapterhaspagenum \textsc{\thepage}\fi}
 
 \if@chapterhaspagenum
-  \makeevenfoot{chapter}{\thepage}{}{}
+  \makeevenfoot{chapter}{\textsc{\small\thepage}}{}{}
 \fi
 \uppercaseheads\nouppercaseheads
 
@@ -1115,36 +1166,35 @@
   \noindent\@bookcopyright\par
   \vspace*{2\baselineskip}
   \ifdefempty{\@bookedition}{}{\noindent\@bookedition\ \ Edition\\}
-  \noindent\textsc{isbn \@bookisbn}\\
-  \noindent\textsc{doi \href{https://doi.org/\@bookdoi}{\@bookdoi}}
+  \ifdefempty{\@bookisbn}{}{\noindent\textsc{isbn \@bookisbn}\\}
+  \ifdefempty{\@bookdoi}{}{\noindent\textsc{doi \href{https://doi.org/\@bookdoi}{\@bookdoi}}}
 
   \vspace*{2\baselineskip}
 
-  \noindent Published by \@bookpublisher,\\
-  \@bookpublisherlocation\\
-  \href{https://www.openpresstiu.org}{https://www.openpresstiu.org}
-
-  \vspace*{2\baselineskip}
-
-
-  \begingroup
-  \footnotesize
-  \colorlet{oldt}{tiu}
-  \colorlet{tiu}{black}
   \@othercredits
-  \endgroup
+
+  \vspace*{2\baselineskip}
+
+  \begin{tabularx}{\textwidth}{@{} X p{2em} @{}}
+    \noindent Published by \@bookpublisher, & \multirow{3}{*}{\ifdefempty{\@bookpublisherlogo}{}{\includegraphics[width=2em]{\@bookpublisherlogo}}} \\
+    \@bookpublisherlocation                                                                                                                         \\
+    \ifdefempty{\@bookcontacturl}{}{\href{\@bookcontacturl}{\@bookcontacturl}\\}
+    \ifdefempty{\@bookcontactemail}{}{\href{mailto:\@bookcontactemail}{\@bookcontactemail}}
+  \end{tabularx}
+
   \vspace*{2\baselineskip}
   \noindent\textcopyright{} \@bookyear\ \ifdefempty{\@bookcopyrightholder}{\@bookauthor}{\@bookcopyrightholder}.
   \endgroup
 }
 
 \newcommand\backcover[1]{
-  \overpass
+  \thispagestyle{empty}
+  % \overpass
   \setlrmargins{*}{*}{1}
   \checkandfixthelayout
   %% backcover
   %%
-  \raggedright
+  \RaggedRight
 
   % \pagecolor{light}
   \begingroup
