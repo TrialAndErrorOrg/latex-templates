@@ -650,7 +650,8 @@
 \if@nosectiontoc
 \else
   \etocsetstyle{section}{}{}{%
-    \begin{tabularx}{\linewidth}{@{} p{2em} l >{\arraybackslash\RaggedRight}X l @{}}
+    \begin{tabularx}{\linewidth}{@{} >{\arraybackslash\RaggedRight}p{2em} >{\arraybackslash\raggedright}p{1.5em} >{\arraybackslash\raggedright}X l @{}}
+      \small
        & \etocnumber & \etocname & \if@tocpages~\hfill\textsc{\etocpage}\fi\par
     \end{tabularx}%
     \par}%
@@ -687,7 +688,7 @@
 \setaftersubsubsecskip{1sp}
 \setbeforesubsubsecskip{-\baselineskip}
 \setsubsecheadstyle{\heading\raggedright\itshape}
-\setsubsubsecheadstyle{\heading\scshape\raggedright\MakeLowercase}
+\setsubsubsecheadstyle{\heading\bfseries\raggedright}
 \setsubsubsecindent{0pt}
 
 % \def\oldsubsec\subsubsection
@@ -695,7 +696,7 @@
 \if@nonumberedheadings
   \setsecnumformat{}
 \else
-  \setsecnumformat{\ \csname the#1\endcsname\ \ \  \raisebox{-.1em}{\textbullet}\ \ \ }
+  \setsecnumformat{\ \csname the#1\endcsname\ \ \  \raisebox{-.15em}{\textbullet}\ \ \ }
 \fi
 
 
@@ -1143,7 +1144,7 @@
 {\RaggedRight \Large   \@booksubtitle}\\[6\onelineskip]
 {\RaggedRight \if@smallauthor\else\Large\fi\textbf{\@bookauthor}} \\[.2\onelineskip]
 \vfill
-\if@print\else\noindent\href{\@bookcontacturl}{Web version}\\\fi
+\if@print\else\noindent\href{\@bookcontacturl}{\ifdefempty{\@bookversion}{Web version}{\@bookversion}}\\\fi
 \noindent \@bookpublisher {\hfill \ifdefempty{\@bookpublisherlogo}{}{\includegraphics[width=2em]{\@bookpublisherlogo}}}
 \clearpage
 \pagestyle{ruled}
