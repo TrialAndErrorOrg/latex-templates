@@ -80,7 +80,7 @@
 
 \RequirePackage[noblocks]{authblk}
 
-\def\@ehilogo{ehi-logo.pdf}
+\def\@telogo{media/TE_logo_blue_high_res.png}
 
 \def\@jname{BioRxiv}
 \def\@jlogo{nab-logo.pdf}
@@ -171,158 +171,158 @@
 }
 
 \newcommand{\license}[1]{
-%%% DEFAULT LICENSE: CC BY
+  %%% DEFAULT LICENSE: CC BY
   \ifstrequal{#1}{cc by}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by/4.0/}{\includegraphics[height=7.8pt]{cc-by-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by/4.0/}{\includegraphics[height=7.8pt]{cc-by-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}. You are free to reuse or adapt this article for any purpose, provided appropriate acknowledgement is provided. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}. You are free to reuse or adapt this article for any purpose, provided appropriate acknowledgement is provided. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year. The Author(s). Except where otherwise noted, the content of this article is licensed under Creative Commons Attribution 4.0 International License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by/4.0/}
   }{}
-%%% AUTHOR CHOICE OF LICENSE: CC BY-NC, with Scientific Use License (for PsychArchives deposit)
+  %%% AUTHOR CHOICE OF LICENSE: CC BY-NC, with Scientific Use License (for PsychArchives deposit)
   \ifstrequal{#1}{cc by-nc+sul}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by-nc/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by-nc/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons Attribution-NonCommercial 4.0 International License}. At your option, you may also use the content of this article under the \href{https://doi.org/10.23668/psycharchives.4988}{Scientific Use License}. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons Attribution-NonCommercial 4.0 International License}. At your option, you may also use the content of this article under the \href{https://doi.org/10.23668/psycharchives.4988}{Scientific Use License}. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year.The Author(s). Except where otherwise noted, the content of this article is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License. At your option, you may also use the content of this article under the Scientific Use License. For additional permissions, please contact the corresponding author.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by-nc/4.0/ https://doi.org/10.23668/psycharchives.4988}
   }{}
-%%% AUTHOR CHOICE OF LICENSE: CC BY-NC alone
+  %%% AUTHOR CHOICE OF LICENSE: CC BY-NC alone
   \ifstrequal{#1}{cc by-nc}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by-nc/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by-nc/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons Attribution-NonCommercial 4.0 International License}. You are free to reuse or adapt this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons Attribution-NonCommercial 4.0 International License}. You are free to reuse or adapt this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year.The Author(s). Except where otherwise noted, the content of this article is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License. You are free to reuse or adapt this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation. For additional permissions, please contact the corresponding author.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by-nc/4.0/}
   }{}
-%%% AUTHOR CHOICE OF LICENSE: CC BY-SA
+  %%% AUTHOR CHOICE OF LICENSE: CC BY-SA
   \ifstrequal{#1}{cc by-sa}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by-sa/4.0/}{\includegraphics[height=7.8pt]{cc-by-sa-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by-sa/4.0/}{\includegraphics[height=7.8pt]{cc-by-sa-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}. You are free to reuse or adapt this article for any purpose with appropriate acknowledgement and, if you remix, adapt, or build upon the material, you must license the modified material under identical terms. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}. You are free to reuse or adapt this article for any purpose with appropriate acknowledgement and, if you remix, adapt, or build upon the material, you must license the modified material under identical terms. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year. The Author(s). Except where otherwise noted, the content of this article is licensed under Creative Commons Attribution-ShareAlike 4.0 International License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited and any modified material is licensed under identical terms.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by-sa/4.0/}
   }{}
-%%% AUTHOR CHOICE OF LICENSE: CC BY-NC-SA, with Scientific Use License (for PsychArchives deposit)
+  %%% AUTHOR CHOICE OF LICENSE: CC BY-NC-SA, with Scientific Use License (for PsychArchives deposit)
   \ifstrequal{#1}{cc by-nc-sa+sul}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-sa-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-sa-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License}. You are free to reuse or adapt this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation. You must provide appropriate acknowledgement and, if you remix, adapt, or build upon the material, you must license the modified material under identical terms. At your option, you may also use the content of this article under the \href{https://doi.org/10.23668/psycharchives.4988}{Scientific Use License}. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License}. You are free to reuse or adapt this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation. You must provide appropriate acknowledgement and, if you remix, adapt, or build upon the material, you must license the modified material under identical terms. At your option, you may also use the content of this article under the \href{https://doi.org/10.23668/psycharchives.4988}{Scientific Use License}. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year. The Author(s). Except where otherwise noted, the content of this article is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. You are free to reuse or adapt this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation. You must provide appropriate acknowledgement and, if you remix, adapt, or build upon the material, you must license the modified material under identical terms. At your option, you may also use the content of this article under the Scientific Use License. For additional permissions, please contact the corresponding author.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by-nc-sa/4.0/ https://doi.org/10.23668/psycharchives.4988}
   }{}
-%%% AUTHOR CHOICE OF LICENSE: CC BY-NC-SA alone
+  %%% AUTHOR CHOICE OF LICENSE: CC BY-NC-SA alone
   \ifstrequal{#1}{cc by-nc-sa}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-sa-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-sa-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License}. You are free to reuse or adapt this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation. You must provide appropriate acknowledgement and, if you remix, adapt, or build upon the material, you must license the modified material under identical terms. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License}. You are free to reuse or adapt this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation. You must provide appropriate acknowledgement and, if you remix, adapt, or build upon the material, you must license the modified material under identical terms. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year. The Author(s). Except where otherwise noted, the content of this article is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. You are free to reuse or adapt this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation. You must provide appropriate acknowledgement and, if you remix, adapt, or build upon the material, you must license the modified material under identical terms. For additional permissions, please contact the corresponding author.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by-nc-sa/4.0/}
   }{}
-%%% AUTHOR CHOICE OF LICENSE: CC BY-ND, with Scientific Use License (for PsychArchives deposit)
+  %%% AUTHOR CHOICE OF LICENSE: CC BY-ND, with Scientific Use License (for PsychArchives deposit)
   \ifstrequal{#1}{cc by-nd+sul}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by-nd/4.0/}{\includegraphics[height=7.8pt]{cc-by-nd-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by-nd/4.0/}{\includegraphics[height=7.8pt]{cc-by-nd-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nd/4.0/}{Creative Commons Attribution-NoDerivatives 4.0 International License}. You are free to copy and redistribute this article for any purpose, provided appropriate acknowledgement is provided. At your option, you may also use the content of this article under the \href{https://doi.org/10.23668/psycharchives.4988}{Scientific Use License}. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nd/4.0/}{Creative Commons Attribution-NoDerivatives 4.0 International License}. You are free to copy and redistribute this article for any purpose, provided appropriate acknowledgement is provided. At your option, you may also use the content of this article under the \href{https://doi.org/10.23668/psycharchives.4988}{Scientific Use License}. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year. The Author(s). Except where otherwise noted, the content of this article is licensed under Creative Commons Attribution-NoDerivatives 4.0 International License.  You are free to copy and redistribute this article for any purpose, provided appropriate acknowledgement is provided. At your option, you may also use the content of this article under the Scientific Use License. For additional permissions, please contact the corresponding author.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by-nd/4.0/ https://doi.org/10.23668/psycharchives.4988}
   }{}
-%%% AUTHOR CHOICE OF LICENSE: CC BY-ND alone
+  %%% AUTHOR CHOICE OF LICENSE: CC BY-ND alone
   \ifstrequal{#1}{cc by-nd}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by-nd/4.0/}{\includegraphics[height=7.8pt]{cc-by-nd-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by-nd/4.0/}{\includegraphics[height=7.8pt]{cc-by-nd-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nd/4.0/}{Creative Commons Attribution-NoDerivatives 4.0 International License}. You are free to copy and redistribute this article for any purpose, provided appropriate acknowledgement is provided. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nd/4.0/}{Creative Commons Attribution-NoDerivatives 4.0 International License}. You are free to copy and redistribute this article for any purpose, provided appropriate acknowledgement is provided. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year. The Author(s). Except where otherwise noted, the content of this article is licensed under Creative Commons Attribution-NoDerivatives 4.0 International License.  You are free to copy and redistribute this article for any purpose, provided appropriate acknowledgement is provided. For additional permissions, please contact the corresponding author.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by-nd/4.0/}
   }{}
-%%% AUTHOR CHOICE OF LICENSE: CC BY-NC-ND, with Scientific Use License (for PsychArchives deposit)
+  %%% AUTHOR CHOICE OF LICENSE: CC BY-NC-ND, with Scientific Use License (for PsychArchives deposit)
   \ifstrequal{#1}{cc by-nc-nd+sul}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-nd-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-nd-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License}. You are free to copy and redistribute this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation, provided appropriate acknowledgement is provided. At your option, you may also use the content of this article under the \href{https://doi.org/10.23668/psycharchives.4988}{Scientific Use License}. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License}. You are free to copy and redistribute this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation, provided appropriate acknowledgement is provided. At your option, you may also use the content of this article under the \href{https://doi.org/10.23668/psycharchives.4988}{Scientific Use License}. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year. The Author(s). Except where otherwise noted, the content of this article is licensed under Creative Commons Attribution-NoDerivatives 4.0 International License.  You are free to copy and redistribute this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation, provided appropriate acknowledgement is provided. At your option, you may also use the content of this article under the Scientific Use License. For additional permissions, please contact the corresponding author.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by-nc-nd/4.0/ https://doi.org/10.23668/psycharchives.4988}
   }{}
-%%% AUTHOR CHOICE OF LICENSE: CC BY-NC-ND alone
+  %%% AUTHOR CHOICE OF LICENSE: CC BY-NC-ND alone
   \ifstrequal{#1}{cc by-nc-nd}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-nd-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{\includegraphics[height=7.8pt]{cc-by-nc-nd-15.eps}} Copyright \textcopyright\space\setjyear. The Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License}. You are free to copy and redistribute this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation, provided appropriate acknowledgement is provided. For additional permissions, please contact the corresponding author.}
+      Copyright \textcopyright\space\setjyear. The Author(s). Except where otherwise noted, the content of this article is licensed under a \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License}. You are free to copy and redistribute this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation, provided appropriate acknowledgement is provided. For additional permissions, please contact the corresponding author.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year. The Author(s). Except where otherwise noted, the content of this article is licensed under Creative Commons Attribution-NoDerivatives 4.0 International License.  You are free to copy and redistribute this article for purposes that are not intended for or directed towards commercial advantage or monetary compensation, provided appropriate acknowledgement is provided. For additional permissions, please contact the corresponding author.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/licenses/by-nc-nd/4.0/ https://doi.org/10.23668/psycharchives.4988}
   }{}
-%%% AUTHOR HAS CHOSEN CC0 PUBLIC DOMAIN DEDICATION
+  %%% AUTHOR HAS CHOSEN CC0 PUBLIC DOMAIN DEDICATION
   \ifstrequal{#1}{cc zero}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/publicdomain/zero/1.0/}{\includegraphics[height=7.8pt]{cc-zero-15.eps}} Copyright \textcopyright\space\setjyear\ waived by the Author(s).
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/publicdomain/zero/1.0/}{\includegraphics[height=7.8pt]{cc-zero-15.eps}} Copyright \textcopyright\space\setjyear\ waived by the Author(s).
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear\ waived by the Author(s). To the extent possible under law, all copyright and related or neighbouring rights to this work have been waived under the \href{https://creativecommons.org/publicdomain/zero/1.0/}{Creative Commons Public Domain Dedication}.}
+      Copyright \textcopyright\space\setjyear\ waived by the Author(s). To the extent possible under law, all copyright and related or neighbouring rights to this work have been waived under the \href{https://creativecommons.org/publicdomain/zero/1.0/}{Creative Commons Public Domain Dedication}.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year waived by the Author(s). To the extent possible under law, all copyright and related or neighbouring rights to this work have been waived under the Creative Commons Public Domain Dedication.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/publicdomain/zero/1.0/}
   }{}
-%%% GOVERNMENT EMPLOYEE CC0 PUBLIC DOMAIN DEDICATION
+  %%% GOVERNMENT EMPLOYEE CC0 PUBLIC DOMAIN DEDICATION
   \ifstrequal{#1}{cc zero-gov}{
     \newcommand{\shortlicense}{%
-    \fontsize{6.5pt}{9.5pt}\selectfont%
-    \color{black}%
-    \href{https://creativecommons.org/publicdomain/zero/1.0/}{\includegraphics[height=7.8pt]{cc-zero-15.eps}} Copyright \textcopyright\space\setjyear\ waived/not applicable.
+      \fontsize{6.5pt}{9.5pt}\selectfont%
+      \color{black}%
+      \href{https://creativecommons.org/publicdomain/zero/1.0/}{\includegraphics[height=7.8pt]{cc-zero-15.eps}} Copyright \textcopyright\space\setjyear\ waived/not applicable.
     }
     \newcommand{\copyrightstatement}{
-    Copyright \textcopyright\space\setjyear\ waived or not applicable. To the extent possible under law, all copyright and related or neighbouring rights to this work have been waived under the \href{https://creativecommons.org/publicdomain/zero/1.0/}{Creative Commons Public Domain Dedication}.}
+      Copyright \textcopyright\space\setjyear\ waived or not applicable. To the extent possible under law, all copyright and related or neighbouring rights to this work have been waived under the \href{https://creativecommons.org/publicdomain/zero/1.0/}{Creative Commons Public Domain Dedication}.}
     \newcommand{\copyrightmetadata}{Copyright (C) \the\year waived or not applicable. To the extent possible under law, all copyright and related or neighbouring rights to this work have been waived under the Creative Commons Public Domain Dedicationn.
     }
     \newcommand{\licenseurl}{https://creativecommons.org/publicdomain/zero/1.0/}
@@ -376,25 +376,25 @@
   \newlength{\@gsheadboxheight}
   \savebox{\@gscitedetails}{%
     \parbox{\textwidth-21pc+4pc+6.64pt}{%
-     \normalfont{\itshape\bfseries\@jname}, \setjyear, \setjvolume(\setjnumber), \setjarticlenum.\par
-     \vspace{\dimexpr 8pt-1em\relax}
-    {\color{black!15}\rule{\columnwidth}{2pt}}\par%
-    \vspace{\dimexpr 8pt-1em\relax}%
-    \fontsize{6.5pt}{9.5pt}\bfseries%
-    \textbf{ISSN: 2652-1768}\par
-    \textcolor{jcolour}{doi: \href{https://doi.org/\setdoi}{\color{jcolour}\setdoi}}\par
-    \vspace{\dimexpr 8pt-1em\relax}%
-    {\color{black!15}\rule{\columnwidth}{2pt}}\par
-  }}%
+      \normalfont{\itshape\bfseries\@jname}, \setjyear, \setjvolume(\setjnumber), \setjarticlenum.\par
+      \vspace{\dimexpr 8pt-1em\relax}
+      {\color{black!15}\rule{\columnwidth}{2pt}}\par%
+      \vspace{\dimexpr 8pt-1em\relax}%
+      \fontsize{6.5pt}{9.5pt}\bfseries%
+      \textbf{ISSN: 2652-1768}\par
+      \textcolor{jcolour}{doi: \href{https://doi.org/\setdoi}{\color{jcolour}\setdoi}}\par
+      \vspace{\dimexpr 8pt-1em\relax}%
+      {\color{black!15}\rule{\columnwidth}{2pt}}\par
+    }}%
   \settototalheight{\@gscitedetailsheight}{\usebox{\@gscitedetails}}%
   %%%%
   \savebox{\@gsheadbox}{%
     \parbox{\textwidth-21pc+4pc+6.64pt}{%
-%    \normalfont%
-%    \fontsize{8pt}{9.5pt}\selectfont%
-%    {\itshape\bfseries\@jname}, \setjyear, \setjarticlenum\par
-%    \vspace{\dimexpr 8pt-1.5pt\relax}%
-    \usebox{\@gscitedetails}
+      %    \normalfont%
+      %    \fontsize{8pt}{9.5pt}\selectfont%
+      %    {\itshape\bfseries\@jname}, \setjyear, \setjarticlenum\par
+      %    \vspace{\dimexpr 8pt-1.5pt\relax}%
+      \usebox{\@gscitedetails}
     }%
   }%
   \settototalheight{\@gsheadboxheight}{\usebox{\@gsheadbox}}%
@@ -416,58 +416,58 @@
 \setlength{\affilsep}{21pt-9pt}
 
 \AtBeginDocument{
-\renewcommand{\@maketitle}{%
-  \textblockorigin{4pc+6.64pt}{4pc+6pt}
-  %%%%
-  \begin{textblock*}{21pc}(0pt,0pt)
-  \IfFileExists{\@ehilogo}{%
-    \includegraphics[height=\@gsheadboxheight]{\@ehilogo}%
-  }{%
-    \fbox{\begin{minipage}[b][\@gsheadboxheight]{\@gsheadboxheight}
-    \raggedright
-    Placeholder for EHI logo \@ehilogo
-    \end{minipage}}%
-  }
-  \hspace{12pt}%
-  %% Do absolutely nothing if \@jlogo is empty string
-  \ifdefempty{\@jlogo}{}{%
-  \IfFileExists{\@jlogo}{%
-    \includegraphics[height=\@gscitedetailsheight]{\@jlogo}
-  }{%
-    \fbox{\begin{minipage}[b][\@gsheadboxheight]{\@gsheadboxheight}%
-    \raggedright Placeholder for journal logo \@jlogo
-    \end{minipage}}%
-  }}
-  \end{textblock*}
-  %%%
-  \begin{textblock*}{\textwidth-21pc}(21pc,0pt)
-  \usebox{\@gsheadbox}
-  \end{textblock*}%
-  %%%
-  \null\vspace*{\dimexpr 9pc+11pt-5pc-6pt\relax}%
-  \href{https://crossmark.crossref.org/dialog/?doi=\setdoi\&domain=pdf\&date\_stamp=\setcrossmarkdate}{\includegraphics[scale=0.8,right]{crossmark.eps}}
-  \par
-  \raggedright%
-  {\fontsize{14pt}{16pt}\selectfont%
-    \ifpdf
-      \textls[200]{\relsize{-1}\MakeUppercase{\@papercat}}
-    \else %%% don't use letterspace in latex+dvi
-      \relsize{-1}\MakeUppercase{\@papercat}%
-    \fi%
-    \par}
-  \vspace{\dimexpr 26pt-18pt\relax}
-  {\fontsize{18pt}{27pt}\bfseries\color{jcolour}\@title\par}
-  \vspace{\dimexpr 26pt-13pt\relax}
-  \@author\par
-  \vspace{\dimexpr 15.5pt-1em}
-  {%
-    \renewcommand{\authfn}[1]{%
-      \textsuperscript{\fnsymbolmult{##1}}%
+  \renewcommand{\@maketitle}{%
+    \textblockorigin{4pc+6.64pt}{4pc+6pt}
+    %%%%
+    \begin{textblock*}{21pc}(0pt,0pt)
+      \IfFileExists{\@telogo}{%
+        \includegraphics[height=\@gsheadboxheight]{\@telogo}%
+      }{%
+        \fbox{\begin{minipage}[b][\@gsheadboxheight]{\@gsheadboxheight}
+            \raggedright
+            Placeholder for EHI logo \@telogo
+          \end{minipage}}%
+      }
+      \hspace{12pt}%
+      %% Do absolutely nothing if \@jlogo is empty string
+      \ifdefempty{\@jlogo}{}{%
+        \IfFileExists{\@jlogo}{%
+          \includegraphics[height=\@gscitedetailsheight]{\@jlogo}
+        }{%
+          \fbox{\begin{minipage}[b][\@gsheadboxheight]{\@gsheadboxheight}%
+              \raggedright Placeholder for journal logo \@jlogo
+            \end{minipage}}%
+        }}
+    \end{textblock*}
+    %%%
+    \begin{textblock*}{\textwidth-21pc}(21pc,0pt)
+      \usebox{\@gsheadbox}
+    \end{textblock*}%
+    %%%
+    \null\vspace*{\dimexpr 9pc+11pt-5pc-6pt\relax}%
+    \href{https://crossmark.crossref.org/dialog/?doi=\setdoi\&domain=pdf\&date\_stamp=\setcrossmarkdate}{\includegraphics[scale=0.8,right]{crossmark.eps}}
+    \par
+    \raggedright%
+    {\fontsize{14pt}{16pt}\selectfont%
+      \ifpdf
+        \textls[200]{\relsize{-1}\MakeUppercase{\@papercat}}
+      \else %%% don't use letterspace in latex+dvi
+        \relsize{-1}\MakeUppercase{\@papercat}%
+      \fi%
+      \par}
+    \vspace{\dimexpr 26pt-18pt\relax}
+    {\fontsize{18pt}{27pt}\bfseries\color{jcolour}\@title\par}
+    \vspace{\dimexpr 26pt-13pt\relax}
+    \@author\par
+    \vspace{\dimexpr 15.5pt-1em}
+    {%
+      \renewcommand{\authfn}[1]{%
+        \textsuperscript{\fnsymbolmult{##1}}%
+      }
+      {\fontsize{6.5pt}{9.5pt}\selectfont\@authnotes\par}%
     }
-    {\fontsize{6.5pt}{9.5pt}\selectfont\@authnotes\par}%
+    \vspace{\dimexpr 16pt-3pt-1em\relax}
   }
-  \vspace{\dimexpr 16pt-3pt-1em\relax}
-}
 }
 
 \RequirePackage[style]{abstract}
@@ -488,26 +488,26 @@
 
 \newenvironment{keywords}
 {\vspace*{\dimexpr 19pt-8pt-\baselineskip\relax}%
-\noindent\fontsize{8pt}{11pt}\selectfont\textbf{Key words}: \ignorespaces}%
+  \noindent\fontsize{8pt}{11pt}\selectfont\textbf{Key words}: \ignorespaces}%
 {\par}
 
 \DeclareFloatingEnvironment[placement=t!,name=kpt]{keypoints}
 
 \xapptocmd{\keypoints}{%
   \begin{mdframed}[linewidth=1pt,linecolor=black,
-  innerleftmargin=8pt,innerrightmargin=8pt,
-  innertopmargin=16pt-8.2pt,innerbottommargin=6pt]
-  {\fontsize{8.2pt}{10pt}\bfseries Key Points\par}
-}{}{}
-\xpretocmd{\endkeypoints}{\end{mdframed}}{}{}
+      innerleftmargin=8pt,innerrightmargin=8pt,
+      innertopmargin=16pt-8.2pt,innerbottommargin=6pt]
+    {\fontsize{8.2pt}{10pt}\bfseries Key Points\par}
+    }{}{}
+    \xpretocmd{\endkeypoints}{\end{mdframed}}{}{}
 
 \xapptocmd{\keypoints*}{%
   \begin{mdframed}[linewidth=1pt,linecolor=black,
-  innerleftmargin=8pt,innerrightmargin=8pt,
-  innertopmargin=16pt-8.2pt,innerbottommargin=6pt]
-  {\fontsize{8.2pt}{10pt}\bfseries Key Points\par}
-}{}{}
-\xpretocmd{\endkeypoints*}{\end{mdframed}}{}{}
+      innerleftmargin=8pt,innerrightmargin=8pt,
+      innertopmargin=16pt-8.2pt,innerbottommargin=6pt]
+    {\fontsize{8.2pt}{10pt}\bfseries Key Points\par}
+    }{}{}
+    \xpretocmd{\endkeypoints*}{\end{mdframed}}{}{}
 
 
 \if@twocolumn
@@ -517,23 +517,24 @@
       \vspace*{\dimexpr 16pt-3pt-1em\relax}
       {\noindent\color{jcolour!40}\rule{\textwidth}{3pt}}\par
       \vspace*{\dimexpr 23pt-1em\relax}]%
-%%%%%%%%%%%%%TO ADD STANDARD FOOTNOTE IF NEED BE%%%%%%%%%  
-%  \begin{figure*}[b!]
+    %%%%%%%%%%%%%TO ADD STANDARD FOOTNOTE IF NEED BE%%%%%%%%%  
+    %  \begin{figure*}[b!]
     %  \fontsize{6.5pt}{9.5pt}\selectfont%
-      %\hrule%
-      %\vspace{\dimexpr 14pt-6.5pt\relax}%
-      %\textbf{Compiled on:} \today.\par
-      %Draft manuscript prepared by the author.\par
+    %\hrule%
+    %\vspace{\dimexpr 14pt-6.5pt\relax}%
+    %\textbf{Compiled on:} \today.\par
+    %Draft manuscript prepared by the author.\par
     %\end{figure*}
   }
 \else
   \NewEnviron{frontmatter}{%
-      \BODY%
-      \vspace*{\dimexpr 16pt-3pt-1em\relax}
-      {\noindent\color{jcolour!40}\rule{\hsize+4pc+6.64pt}{3pt}}\par
-      \vspace*{\dimexpr 23pt-1em\relax}%
-
+    \BODY%
+    \vspace*{\dimexpr 16pt-3pt-1em\relax}
+    {\noindent\color{jcolour!40}\rule{\hsize+4pc+6.64pt}{3pt}}\par
+    \vspace*{\dimexpr 23pt-1em\relax}%
+    
   }
+
 \fi
 
 \setcounter{secnumdepth}{0}
@@ -545,7 +546,7 @@
 \titlespacing*{\subsubsection}{0pt}{\baselineskip}{0pt}
 \titleformat{\paragraph}[runin]{\normalsize\itshape}{\theparagraph}{0pt}{}[.\enspace]
 \titlespacing*{\paragraph}{0pt}{\baselineskip}{0pt}
-  \titleformat{\subparagraph}[runin]{\relsize{-1}\uppercase}{\thesubparagraph}{0pt}{}[.\enspace]
+\titleformat{\subparagraph}[runin]{\relsize{-1}\uppercase}{\thesubparagraph}{0pt}{}[.\enspace]
 \titlespacing*{\subparagraph}{0pt}{\baselineskip}{0pt}
 
 \RequirePackage{enumitem}
@@ -553,8 +554,8 @@
 \setlist[itemize]{leftmargin=12pt,topsep=16pt-1em}
 \setlist[enumerate]
 {itemindent=14pt,topsep=16.8pt-1em,
- label={\roman*.},labelsep=7pt,
- labelwidth=*,leftmargin=*,align=right}
+  label={\roman*.},labelsep=7pt,
+  labelwidth=*,leftmargin=*,align=right}
 
 
 % quotes and epigraphs
@@ -568,8 +569,8 @@
 
 \newenvironment{epigraph}[1]
 {\begin{quoting}[font={itshape,fontsize{7.5pt}{10.5pt}},vskip=15pt-1em,leftmargin=0pt,rightmargin=0pt]%
- \def\@quotesource{#1}}
-{\par\vspace{\dimexpr 15pt-1em\relax}{\upshape---\@quotesource}\end{quoting}}
+    \def\@quotesource{#1}}
+    {\par\vspace{\dimexpr 15pt-1em\relax}{\upshape---\@quotesource}\end{quoting}}
 
 % Space above/below equations
 \g@addto@macro\normalsize{%
@@ -624,8 +625,8 @@
   \bibliographystyle{plos2015}
 \fi
 \if@alpharefs
-    \RequirePackage{natbib}
-    \bibliographystyle{dcu}
+  \RequirePackage{natbib}
+  \bibliographystyle{dcu}
 \fi
 \setlength{\bibhang}{11pt}
 \setlength{\bibsep}{0pt}
