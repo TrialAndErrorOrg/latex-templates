@@ -691,6 +691,7 @@
 \fancyfoot[LO]{
   \arrayrulecolor{betterlightblack}%
   \small\selectfont\color{betterlightblack}%
+  \vspace*{.5\baselineskip}
   \begin{tabularx}{\dimexpr \textwidth + \myoddoffset }{@{}>{\RaggedRight\arraybackslash}X   @{}}%
     \hline
     \\
