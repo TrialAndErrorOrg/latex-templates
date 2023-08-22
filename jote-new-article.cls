@@ -1152,6 +1152,24 @@
   backrefpages = {see pp\adddot}%
 }
 
+% Break urls
+\makeatletter
+\g@addto@macro\UrlBreaks
+{%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\&\do\1\do\2\do\3%
+  \do\4\do\5\do\6\do\7\do\8\do\9\do\0\do\/\do\.%
+}
+\g@addto@macro\UrlSpecials
+{%
+\do\/{\mbox{\UrlFont/}\hskip 0pt plus 10pt}%
+}
+\makeatother
+\setcounter{biburlucpenalty}{1}  %break URL after uppercase character
+\setcounter{biburlnumpenalty}{1} %break URL after number
+\setcounter{biburllcpenalty}{1}  %break URL after lowercase character
+
 
 
 
@@ -1215,14 +1233,14 @@
 }{}
 
 %Append all the necessecary things after the references (license, copyright, acknowledgements)
-\RequirePackage{wrapfig}
-\apptocmd{\printbibliography}{%
-  \ifdefempty{\@companionkey}{}{
-    \ifdefempty{\@acknowledgments}{}{%
-      \section{Acknowledgments}%
-      \@acknowledgments}}%
-  \ifdefempty{\@interests}{}{\section{Conflict of Interest}\@interests}
-}{}{}
+% \RequirePackage{wrapfig}
+% \apptocmd{\printbibliography}{%
+%   \ifdefempty{\@companionkey}{}{
+%     \ifdefempty{\@acknowledgments}{}{%
+%       \section{Acknowledgments}%
+%       \@acknowledgments}}%
+%   \ifdefempty{\@interests}{}{\section{Conflict of Interest}\@interests}
+% }{}{}
 
 
 \RequirePackage{nowidow}
