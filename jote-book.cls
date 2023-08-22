@@ -282,7 +282,10 @@
 
 
 % \RequirePackage[\ifdefempty{\@booklanguage}{english}{\@booklanguage}]{babel}
-\RequirePackage{csquotes}
+% \RequirePackage[autostyle, english = american, maxlevel=3]{csquotes}
+% \MakeOuterQuote{"}
+
+
 \RequirePackage[babel]{microtype}
 
 \RequirePackage{bookmark}
@@ -785,7 +788,7 @@
 
 
 \setheadfoot{\onelineskip}{2\onelineskip}
-\setheaderspaces{*}{2\onelineskip}{*}
+\setheaderspaces{*}{\onelineskip}{*}
 \checkandfixthelayout
 
 
@@ -902,9 +905,12 @@
 }
 
 
-\makeoddhead{ruled}{\makethumb}{}{\small{\heading\scshape\color{black!70}\MakeLowercase{\if@nochapterinheader\else\thechapter\ \   \fi\@jotetitle}\hfill\thepage}}
+\makeoddhead{ruled}{\if@thumbs\makethumb\fi}{}{\small{\heading\scshape\color{black!70}\MakeLowercase{\if@nochapterinheader\else\thechapter\ \   \fi\@jotetitle}\hfill\thepage}}
 
-\makeevenhead{ruled}{\small{\scshape\thepage\hfill\heading\color{black!70}\if@titleinheader\MakeLowercase\@headertitle\else\MakeLowercase\@runningauthor\fi}}{}{\makethumb[-1]}
+\makeevenhead{ruled}{\small{\color{black!70}\scshape\thepage\hfill\heading\if@titleinheader\MakeLowercase\@headertitle\else\MakeLowercase\@runningauthor\fi}}{}{\if@thumbs\makethumb[-1]\fi}
+% \makeoddhead{ruled}{}{}{\small{\heading\scshape\color{black!70}\MakeLowercase{\if@nochapterinheader\else\thechapter\ \   \fi\@jotetitle}\hfill\thepage}}
+
+% \makeevenhead{ruled}{\small{\color{black!70}\scshape\thepage\hfill\heading\if@titleinheader\MakeLowercase\@headertitle\else\MakeLowercase\@runningauthor\fi}}{}{}
 
 \newrobustcmd\B{\DeclareFontSeriesDefault[rm]{bf}{b}\bfseries}
 
@@ -1089,9 +1095,13 @@
 
 
 \renewcommand{\afterchaptertitle}{%
-\\{\color{black!70}\itshape\large\@jotesubtitle}
+\\{\vspace*{-.3\baselineskip}%
+\begin{tabularx}{.8\textwidth}{@{}>{\arraybackslash\raggedleft}X@{}}\begin{Spacing}{0.9}\color{black!70}\itshape\large%
+                                                        \@jotesubtitle%
+                                                      \end{Spacing}%
+\end{tabularx}}
 \if@perchapterpagenum\setcounter{chapterpgn}{\thepage}\fi%
-\vskip6\onelineskip%
+\vskip5\onelineskip%
 \resetchapter%
 }%
 }
