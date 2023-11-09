@@ -99,7 +99,7 @@
 \newif\if@header
 \newif\if@noabstract
 
-\newif\if@twocolumn
+\newif\if@onecolumn
 %% Add options for other journals here
 \DeclareOption{jote}{%
   \def\@jlogo{jabr-logo}%
@@ -156,7 +156,14 @@
 \ProcessOptions\relax
 
 
-\LoadClass[english,twocolumn,10pt]{article}
+
+\if@onecolumn
+  \LoadClass[english,10pt]{article}
+\else
+  \LoadClass[english,10pt,twocolumn]{article}
+\fi
+
+
 
 \RequirePackage{scrextend}
 \RequirePackage{trace}
@@ -232,13 +239,13 @@
   paperheight=280mm,
   textwidth=130mm,
   % textheight=53\baselineskip,
-  lines=53,
+  lines=\if@onecolumn40\else53\fi,
   headsep=2\smallwidth,
   headheight=20pt,
   footskip=\smallwidth,
   columnsep=\smallwidth,
   includeheadfoot,
-  inner= 4.8cm,
+  inner=\if@onecolumn8cm\else 4.8cm\fi,
   outer=15mm,
   bindingoffset=0mm,
   marginparwidth=2.5cm,
@@ -330,6 +337,8 @@
 %for peer review
 \newcommand{\ogauthor}[1]{\def\@ogauthor{#1}}
 \newcommand{\prround}[1]{\def\@prround{#1}}
+
+\newcommand{\articletype}[1]{\def\jote@articletype{#1}}
 
 % spacing command
 \newcommand{\bigspace}{3\baselineskip}
