@@ -14,6 +14,7 @@
 \setcounter{errorcontextlines}{30}
 %% Definitions for adding journal elements
 \def\@jotetitle{}
+\def\@footertitle{}
 
 \def\@jlogo{}
 \def\@jname{}
@@ -76,8 +77,8 @@
 \def\@ogauthor{}
 \def\@prround{}
 
-\def\jote@articletype{}
-\def\jote@footertitle{}
+\def\@articletype{}
+\def\@specialissue{}
 
 \newif\if@numeric
 \newif\if@authordate
@@ -132,12 +133,12 @@
 
 %% Options for papertype
 
-\DeclareOption{reflection}{\@reflectiontrue \@reviewfalse \renewcommand\jote@articletype{Reflection}}
-\DeclareOption{rga}{\@rgatrue \@reviewfalse \renewcommand\jote@articletype{Rejected Grant Application}}
-\DeclareOption{empirical}{\@empiricaltrue \@reviewfalse \renewcommand\jote@articletype{Empirical}}
-\DeclareOption{meta}{\@metatrue \@reviewfalse \renewcommand\jote@articletype{Meta-Research}}
-\DeclareOption{editorial}{\@editorialtrue \@reviewfalse \renewcommand\jote@articletype{Editorial}}
-\DeclareOption{review}{\@reviewtrue \renewcommand\jote@articletype{Peer Review}}
+\DeclareOption{reflection}{\@reflectiontrue \@reviewfalse \renewcommand\@articletype{Reflection}}
+\DeclareOption{rga}{\@rgatrue \@reviewfalse \renewcommand\@articletype{Rejected Grant Application}}
+\DeclareOption{empirical}{\@empiricaltrue \@reviewfalse \renewcommand\@articletype{Empirical}}
+\DeclareOption{meta}{\@metatrue \@reviewfalse \renewcommand\@articletype{Meta-Research}}
+\DeclareOption{editorial}{\@editorialtrue \@reviewfalse \renewcommand\@articletype{Editorial}}
+\DeclareOption{review}{\@reviewtrue \renewcommand\@articletype{Peer Review}}
 
 \DeclareOption{issue}{\@issuetrue \@rollingfalse}
 \DeclareOption{header}{\@headertrue}
@@ -340,7 +341,8 @@
 \newcommand{\ogauthor}[1]{\def\@ogauthor{#1}}
 \newcommand{\prround}[1]{\def\@prround{#1}}
 
-\newcommand{\articletype}[1]{\def\jote@articletype{#1}}
+\newcommand{\articletype}[1]{\def\@articletype{#1}}
+\newcommand{\specialissue}[1]{\def\@specialissue{#1}}
 
 % spacing command
 \newcommand{\bigspace}{3\baselineskip}
@@ -350,6 +352,15 @@
 \RequirePackage[light,math]{iwona}
 % \RequirePackage{unicode-math}
 
+
+%%%%%%%%%%%%%%%%%%
+%% Defaults
+%%%%%%%%%%%%%%%%%%
+
+
+\jname{Journal of Trial \& Error}
+\jlogo{media/TE_logo_blue_high_res.png}
+\jwebsite{https://journal.trialanderror.org}
 
 
 %%%%%%%%%%%%%%%%%%
@@ -686,13 +697,13 @@
   \if@issue
     \begin{tabularx}{\dimexpr\textwidth + \marginparwidth + \marginparsep}{@{} l  >{\raggedleft\arraybackslash}X  r @{}}%
       \raisebox{-0.1em}{\includegraphics[height=1.5\smallwidth]{media/TE_logo_blue_high_res.png}} \,
-      \Large \color{jotedark} \overpass \jote@articletype
+      \Large \color{jotedark} \overpass \@articletype
        & \textls[10]{\color{jotedark}\@runningauthor} & \thepage
     \end{tabularx}
   \else
     \begin{tabularx}{\dimexpr\textwidth + \marginparwidth + \marginparsep}{@{} l  >{\raggedleft\arraybackslash}X  @{}}%
       \raisebox{-0.1em}{\includegraphics[height=1.5\smallwidth]{media/TE_logo_blue_high_res.png}} \,
-      \Large \color{jotedark} \overpass \jote@articletype
+      \Large \color{jotedark} \overpass \@articletype
        & \textls[10]{\color{jotedark}\@runningauthor}
     \end{tabularx}
   \fi
@@ -762,7 +773,7 @@
       \begin{tabularx}{\linewidth}{@{} l @{}}
         {\color{joteorange!70}\bfseries%
           \textls[60]{%
-            \Huge\overpass\MakeUppercase{\jote@articletype}}%
+            \Huge\overpass\MakeUppercase{\@articletype}}%
           \text{   } {\color{joteorange!70}\huge\raisebox{-.1em}{\aiOpenAccess}}%
         }
       \end{tabularx}
@@ -778,10 +789,9 @@
     \small
     \color{betterlightblack}%
     \if@issue
-      \begin{tabularx}{\linewidth}{@{} p{\dimexpr \marginparwidth  + 4mm \relax}  >{\raggedleft\arraybackslash}X l | r}%
+      \begin{tabularx}{\linewidth}{@{} p{\dimexpr \marginparwidth  + 4mm \relax}  >{\RaggedRight\arraybackslash}X | r @{}}%
          &
-        \@runningauthor\text{ } (\@jyear), \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}. \emph{\@jname}, \textbf{\color{betterlightblack}\@jvolume} (\@jissue). \href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}
-         & \href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}
+        \@runningauthor\text{ } (\@jyear), \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}. \emph{\@jname}, \textbf{\color{betterlightblack}\@jvolume} (\@jissue). \mbox{\href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}}
          & \thepage
       \end{tabularx}%
     \else
@@ -856,7 +866,7 @@
   \JoinCoffins\MainFrame[\Titlex-l,\Titlex-b]\Authorx[l,t](0pt,\dimexpr-\AuthSep\relax)
   %Typeset
   %put the assambly in the page current insertion point
-  \noindent\TypesetCoffin\MainFrame[l,vc](\dimexpr-\LogoSep-15mm\relax, 0pt)
+  \noindent\TypesetCoffin\MainFrame[l,vc](\dimexpr-\LogoSep-17mm\relax, 0pt)
 }
 
 
@@ -921,6 +931,9 @@
   \else
     \ifdefempty{\@contributions}{}{\authfn{2}\@contributions}
     \vskip0pt
+    \ifdefempty{\@specialissue}{}{%
+      \textbf{Part of Special Issue}\\%
+      \@specialissue\vskip0pt}
     \receiveddatahori
     \vskip\smallwidth
     {\textbf{Correspondence}}\\
