@@ -77,6 +77,7 @@
 \def\@prround{}
 
 \def\jote@articletype{}
+\def\jote@footertitle{}
 
 \newif\if@numeric
 \newif\if@authordate
@@ -272,6 +273,7 @@
 % }
 
 \newcommand{\jotetitle}[1]{\def\@jotetitle{#1}}
+\newcommand{\footertitle}[1]{\def\@footertitle{#1}}
 
 \newcommand{\jlogo}[1]{\def\@jlogo{#1}}
 \newcommand{\jname}[1]{\def\@jname{#1}}
@@ -610,7 +612,7 @@
 % \makeatletter
 \AtBeginDocument{
   \hypersetup{
-    pdftitle={\@runningauthor\text{ } (\@jyear) - \@jotetitle},
+    pdftitle={\@runningauthor\text{ } (\@jyear) - \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}},
     pdfauthor = {\@runningauthor%
         %   \@authorone%
         % \ifdefempty{\@authortwo}{}{, \@authortwo}%
@@ -705,7 +707,7 @@
     \hline
     \\
     % \opensans
-    \@runningauthor\ (\@jyear). \@jotetitle. \emph{\@jname}\if@issue \emph{, \@jvolume}(\@jissue),~ \@jpages\fi.
+    \@runningauthor\ (\@jyear). \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}. \emph{\@jname}\if@issue \emph{, \@jvolume}(\@jissue),~ \@jpages\fi.
     \mbox{\href{https://doi.org/ \@paperdoi \if@review .pr\@prround\fi}{https://doi.org/\@paperdoi\if@review .pr\@prround\fi}}.
   \end{tabularx}%
 }
@@ -778,14 +780,14 @@
     \if@issue
       \begin{tabularx}{\linewidth}{@{} p{\dimexpr \marginparwidth  + 4mm \relax}  >{\raggedleft\arraybackslash}X l | r}%
          &
-        \@runningauthor\text{ } (\@jyear), \@jotetitle. \emph{\@jname}, \textbf{\color{betterlightblack}\@jvolume} (\@jissue). \href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}
+        \@runningauthor\text{ } (\@jyear), \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}. \emph{\@jname}, \textbf{\color{betterlightblack}\@jvolume} (\@jissue). \href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}
          & \href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}
          & \thepage
       \end{tabularx}%
     \else
       \begin{tabularx}{\linewidth}{@{}p{\dimexpr \marginparwidth + 4mm \relax} >{\RaggedRight\arraybackslash}X @{}}%
          &
-        \@runningauthor\text{ } (\@jyear). \@jotetitle. \textit{\@jname}. \mbox{\href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}}
+        \@runningauthor\text{ } (\@jyear). \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}. \textit{\@jname}. \mbox{\href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}}
       \end{tabularx}
     \fi
   }
