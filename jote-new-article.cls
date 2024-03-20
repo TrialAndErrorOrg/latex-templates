@@ -672,6 +672,14 @@
 \RequirePackage[flushmargin,bottom,norule, marginal]{footmisc}
 \RequirePackage{afterpage}
 
+\newcommand\customfootnote[2][\relax]{%
+  \vskip-\baselineskip
+  \begingroup%
+  \renewcommand\thefootnote{}%
+  \footnote{\ifx#1\relax\else\textsuperscript{#1}\fi #2}%
+  \addtocounter{footnote}{-1}%
+  \endgroup%
+}
 
 
 
@@ -791,7 +799,7 @@
     \if@issue
       \begin{tabularx}{\linewidth}{@{} p{\dimexpr \marginparwidth  + 4mm \relax}  >{\RaggedRight\arraybackslash}X | r @{}}%
          &
-        \@runningauthor\text{ } (\@jyear), \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}. \emph{\@jname}, \textbf{\color{betterlightblack}\@jvolume} (\@jissue). \mbox{\href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}}
+        \@runningauthor\text{ } (\@jyear), \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}. \emph{\@jname}, \textbf{\color{betterlightblack}\@jvolume} (\@jissue), \@jpages. \mbox{\href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}}
          & \thepage
       \end{tabularx}%
     \else
@@ -1048,8 +1056,8 @@
 %  \titlespacing*{name=\section,numberless}{0pt}{\baselineskip}{0pt}
 
 \titleformat{\subsection}[block]{\RaggedRight}{}{0pt}{\normalsize\openreg#1}
-\titlespacing*{\subsection}{0pt}{  6pt plus 6pt minus 6pt}{6pt plus 6pt minus 6pt}
-\titlespacing*{\subsection}{0pt}{  12.0pt plus 12.0pt minus 12.0pt}{  12.0pt plus 12.0pt minus 12.0pt}
+\titlespacing*{\subsection}{0pt}{6.0pt plus 6.0pt minus 6.0pt}{6.0pt plus 6.0pt minus 6.0pt}
+% \titlespacing*{\subsection}{0pt}{  12.0pt plus 12.0pt minus 12.0pt}{  12.0pt plus 12.0pt minus 12.0pt}
 \titlespacing*{name=\subsection,numberless}{0pt}{\baselineskip}{0pt}
 
 \titleformat{\subsubsection}[block]{\RaggedRight}{}{0pt}{\normalsize\selectfont\itshape #1}%Textls sets spacing. 100 is a bit, can take big numbers
