@@ -374,6 +374,7 @@
   UprightFont={*-Light},
   ItalicFont={*-LightItalic},
   BoldFont={*-SemiBold},
+  BoldItalicFont={*-SemiBoldItalic},
 ]
 
 
@@ -384,6 +385,7 @@
   UprightFont={*-Regular},
   ItalicFont={*-Italic},
   BoldFont={*-Bold},
+  BoldItalicFont={*-BoldItalic},
 ]
 
 
