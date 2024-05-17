@@ -801,7 +801,7 @@
     \if@issue
       \begin{tabularx}{\linewidth}{@{} p{\dimexpr \marginparwidth  + 4mm \relax}  >{\RaggedRight\arraybackslash}X | r @{}}%
          &
-        \@runningauthor\text{ } (\@jyear), \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}. \emph{\@jname}, \textbf{\color{betterlightblack}\@jvolume} (\@jissue), \@jpages. \mbox{\href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}}
+        \@runningauthor\text{ } (\@jyear), \ifdefempty{\@footertitle}{\@jotetitle}{\@footertitle}. \emph{\@jname}, \textit{\color{betterlightblack}\@jvolume} (\@jissue), \@jpages. \mbox{\href{https://doi.org/\@paperdoi}{https://doi.org/\@paperdoi}}
          & \thepage
       \end{tabularx}%
     \else
