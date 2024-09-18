@@ -92,6 +92,8 @@
 \newif\if@reflection
 \newif\if@rga
 \newif\if@empirical
+\newif\if@commentary
+\newif\if@anecdote
 \newif\if@meta
 \newif\if@editorial
 \newif\if@review
@@ -136,6 +138,8 @@
 \DeclareOption{reflection}{\@reflectiontrue \@reviewfalse \renewcommand\@articletype{Reflection}}
 \DeclareOption{rga}{\@rgatrue \@reviewfalse \renewcommand\@articletype{Rejected Grant Application}}
 \DeclareOption{empirical}{\@empiricaltrue \@reviewfalse \renewcommand\@articletype{Empirical}}
+\DeclareOption{anecdote}{\@anecdotetrue \@reviewfalse \renewcommand\@articletype{Anecdote}}
+\DeclareOption{commentary}{\@commentarytrue \@reviewfalse \renewcommand\@articletype{Commentary}}
 \DeclareOption{meta}{\@metatrue \@reviewfalse \renewcommand\@articletype{Meta-Research}}
 \DeclareOption{editorial}{\@editorialtrue \@reviewfalse \renewcommand\@articletype{Editorial}}
 \DeclareOption{review}{\@reviewtrue \renewcommand\@articletype{Peer Review}}
