@@ -1054,16 +1054,17 @@
 
 % \titleformat{\section}[block]{}{}{0pt}{\Large}
 \titleformat{\section}[hang]{}{\jotebar}{5pt}{\normalsize\bfseries\RaggedRight#1}
-\titlespacing*{\section}{0pt}{  12.0pt plus 6.0pt minus 6.0pt}{  12.0pt plus 6.0pt minus 6.0pt}
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip}
+% \titlespacing*{\section}{0pt}{12.0pt plus 0.0pt minus 0.0pt}{12.0pt plus 0.0pt minus 0.0pt}
 %  \titlespacing*{name=\section,numberless}{0pt}{\baselineskip}{0pt}
 
 \titleformat{\subsection}[block]{\RaggedRight}{}{0pt}{\normalsize\openreg#1}
-\titlespacing*{\subsection}{0pt}{6.0pt plus 6.0pt minus 6.0pt}{6.0pt plus 6.0pt minus 6.0pt}
+\titlespacing*{\subsection}{0pt}{12.0pt plus 0.0pt minus 0.0pt}{12.0pt plus 0.0pt minus 0.0pt}
 % \titlespacing*{\subsection}{0pt}{  12.0pt plus 12.0pt minus 12.0pt}{  12.0pt plus 12.0pt minus 12.0pt}
 \titlespacing*{name=\subsection,numberless}{0pt}{\baselineskip}{0pt}
 
 \titleformat{\subsubsection}[block]{\RaggedRight}{}{0pt}{\normalsize\selectfont\itshape #1}%Textls sets spacing. 100 is a bit, can take big numbers
-\titlespacing*{\subsubsection}{0pt}{12.0pt plus 12.0pt minus 12.0pt}{0pt + 12.0pt minus 0.0pt}
+\titlespacing*{\subsubsection}{0pt}{12.0pt plus 0.0pt minus 0.0pt}{0pt + 0.0pt minus 0.0pt}
 
 \titleformat{name=\paragraph}[runin]
 {\mdseries}
