@@ -92,6 +92,8 @@
 \newif\if@reflection
 \newif\if@rga
 \newif\if@empirical
+\newif\if@commentary
+\newif\if@anecdote
 \newif\if@meta
 \newif\if@editorial
 \newif\if@review
@@ -136,6 +138,8 @@
 \DeclareOption{reflection}{\@reflectiontrue \@reviewfalse \renewcommand\@articletype{Reflection}}
 \DeclareOption{rga}{\@rgatrue \@reviewfalse \renewcommand\@articletype{Rejected Grant Application}}
 \DeclareOption{empirical}{\@empiricaltrue \@reviewfalse \renewcommand\@articletype{Empirical}}
+\DeclareOption{anecdote}{\@anecdotetrue \@reviewfalse \renewcommand\@articletype{Anecdote}}
+\DeclareOption{commentary}{\@commentarytrue \@reviewfalse \renewcommand\@articletype{Commentary}}
 \DeclareOption{meta}{\@metatrue \@reviewfalse \renewcommand\@articletype{Meta-Research}}
 \DeclareOption{editorial}{\@editorialtrue \@reviewfalse \renewcommand\@articletype{Editorial}}
 \DeclareOption{review}{\@reviewtrue \renewcommand\@articletype{Peer Review}}
@@ -465,6 +469,25 @@
 }
 
 
+\newtcolorbox{invitebox}{%
+  enhanced,
+  top=\dimexpr.8\smallwidth,
+  bottom=\dimexpr 1.6\smallwidth,
+  left=1.7\smallwidth,
+  right=1.7\smallwidth,
+  colframe=joteOrangeLight,
+  colbacktitle=joteOrangeLight,
+  colback=joteOrangeLight,
+  coltitle=jotedark,
+  fontupper={\openreg \color{jotedark}},
+  fonttitle={\overpass \bfseries \LARGE \color{jotedark}},
+  sharp corners,
+  % look if you have a better idea by all means
+  % no raisebox doesnt work
+  borderline east ={1em}{0pt}{joteorange},
+}
+
+
 % Takehome message
 \newfloat{takeHomeFloat}{t!}{lop}
 
@@ -539,6 +562,19 @@
     \end{companionbox}
   \end{company}
 }
+
+\newfloat{invite}{b!}{lop}
+
+\NewEnviron{invitation}{
+  \begin{invite}%
+    \begin{invitebox}
+      \RaggedRight%
+      \vskip.5\smallwidth
+      \BODY
+    \end{invitebox}
+  \end{invite}
+}
+
 
 \RequirePackage{changepage}% provides the adjustwidth environment
 % \usepackage{multicol}% for multiple columns inside the fullwidth environment
