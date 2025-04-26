@@ -97,6 +97,7 @@
 \newif\if@meta
 \newif\if@editorial
 \newif\if@review
+\newif\if@perspective
 
 \newif\if@issue
 \newif\if@rolling
@@ -143,6 +144,7 @@
 \DeclareOption{meta}{\@metatrue \@reviewfalse \renewcommand\@articletype{Meta-Research}}
 \DeclareOption{editorial}{\@editorialtrue \@reviewfalse \renewcommand\@articletype{Editorial}}
 \DeclareOption{review}{\@reviewtrue \renewcommand\@articletype{Peer Review}}
+\DeclareOption{perspective}{\@perspectivetrue \renewcommand\@articletype{Perspective}}
 
 \DeclareOption{issue}{\@issuetrue \@rollingfalse}
 \DeclareOption{header}{\@headertrue}
