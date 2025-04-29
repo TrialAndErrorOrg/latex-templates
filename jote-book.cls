@@ -629,7 +629,7 @@
 % replace \quad by \kern1em\relax
 
 \etocsetstyle{chapter}{}{}{\vskip\baselineskip%\etocifnumbered
-  \begin{tabularx}{\linewidth}{@{} >{\arraybackslash\RaggedRight}p{2em} >{\arraybackslash\RaggedRight}X >{\arraybackslash\RaggedLeft}p{3em} @{}}
+  \begin{tabularx}{\linewidth}{@{} >{\arraybackslash\raggedright}p{.5em} >{\arraybackslash\raggedright}X >{\arraybackslash\raggedleft}p{3em} @{}}
     \etocnumber &                                          %
     \textbf{\etocname}%
                 & \if@tocpages~\hfill\textsc{\etocpage}\fi
@@ -643,7 +643,7 @@
 }{}
 
 \etocsetstyle{authors}{}{}{%
-  \begin{tabularx}{\linewidth}{@{} >{\arraybackslash\RaggedRight}p{2em} >{\arraybackslash\RaggedRight}X >{\arraybackslash\RaggedLeft}p{3em} @{}}
+  \begin{tabularx}{\linewidth}{@{} >{\arraybackslash\raggedright}p{.5em} >{\arraybackslash\raggedright}X >{\arraybackslash\raggedleft}p{3em} @{}}
      & \small\etocname &
   \end{tabularx}%
   \par\vspace{1ex}
@@ -653,7 +653,7 @@
 \if@nosectiontoc
 \else
   \etocsetstyle{section}{}{}{%
-    \begin{tabularx}{\linewidth}{@{} >{\arraybackslash\RaggedRight}p{2em} >{\arraybackslash\raggedright}p{1.5em} >{\arraybackslash\raggedright}X l @{}}
+    \begin{tabularx}{\linewidth}{@{} >{\arraybackslash\raggedright}p{.5em} >{\arraybackslash\raggedright}p{.5em} >{\arraybackslash\raggedright}X l @{}}
       \small
        & \etocnumber & \etocname & \if@tocpages~\hfill\textsc{\etocpage}\fi\par
     \end{tabularx}%
@@ -666,7 +666,7 @@
 \etocsetstyle{subsubsection}{}{}{}{}
 
 \etocsetstyle{subtitle}{}{}{%
-  \begin{tabularx}{\linewidth}{@{} >{\arraybackslash\RaggedRight}p{2em} >{\arraybackslash\RaggedRight}X >{\arraybackslash\RaggedLeft}p{3em} @{}}
+  \begin{tabularx}{\linewidth}{@{} >{\arraybackslash\RaggedRight}p{.5em} >{\arraybackslash\RaggedRight}X >{\arraybackslash\RaggedLeft}p{3em} @{}}
      & \textit{\small\etocname} &
   \end{tabularx}%
   \par}{}
@@ -676,7 +676,7 @@
   \vspace*{2ex}}{}
 
 \etocsettocstyle {\noindent{\Large \contentsname}\par
-  \pagestyle{plain}%
+  \pagestyle{empty}%
   \noindent\rule{\textwidth}{1pt}\par\vspace{3ex}%
   \parindent0pt\def\TEMP{0}}{}
 
@@ -688,18 +688,24 @@
 \headstyles{bringhurst}
 
 \setsecheadstyle{\heading\scshape\raggedright\lowercase}%\MakeLowercase}
-\setaftersubsubsecskip{1sp}
-\setbeforesubsubsecskip{-\baselineskip}
+\setbeforesecskip{-1\onelineskip}
+\setaftersecskip{1\onelineskip}
+\setbeforesubsecskip{-1\onelineskip}
+\setaftersubsecskip{1\onelineskip}
 \setsubsecheadstyle{\heading\raggedright\itshape}
+\setaftersubsubsecskip{1sp}
+\setbeforesubsubsecskip{-\onelineskip}
 \setsubsubsecheadstyle{\heading\bfseries\raggedright}
 \setsubsubsecindent{0pt}
 
 % \def\oldsubsec\subsubsection
 
+
+
 \if@nonumberedheadings
   \setsecnumformat{}
 \else
-  \setsecnumformat{\ \csname the#1\endcsname\ \ \  \raisebox{-.15em}{\textbullet}\ \ \ }
+  \setsecnumformat{\normalshape \scshape \csname the#1\endcsname\ \ \  \raisebox{-.15em}{\textbullet}\ \ \ }
 \fi
 
 
@@ -759,10 +765,14 @@
     \setlength\stockx{170mm}
     \setlength\typeblockx{110mm}
     \setlength\stocky{240mm}
-    \setlength\typeblocky{177mm}
+    \setlength\typeblocky{182mm}
     \defaultmargins
     \setulmargins{28mm}{*}{*}
-    \setlrmargins{18.63mm}{*}{*}
+    \if@print
+      \setlrmargins{*}{18.63mm}{*}
+    \else
+      \setlrmargins{18.63mm}{*}{*}
+    \fi
     % \setlrmargins{*}{*}{1.414}
 
 
@@ -904,15 +914,17 @@
   \fi
 }
 
+\newcommand{\pagenumber}{\small\color{black!70}\textsc{\thepage}}
 
-\makeoddhead{ruled}{\if@thumbs\makethumb\fi}{}{\small{\heading\scshape\color{black!70}\MakeLowercase{\if@nochapterinheader\else\thechapter\ \   \fi\@jotetitle}\hfill\thepage}}
+\makeoddhead{ruled}{\if@thumbs\makethumb\fi}{}{\hfill\small{\heading\scshape\color{black!70}\MakeLowercase{\if@nochapterinheader\else\thechapter.\ \   \fi\@jotetitle}\hfill}}
 
-\makeevenhead{ruled}{\small{\color{black!70}\scshape\thepage\hfill\heading\if@titleinheader\MakeLowercase\@headertitle\else\MakeLowercase\@runningauthor\fi}}{}{\if@thumbs\makethumb[-1]\fi}
+\makeevenhead{ruled}{\small{\color{black!70}\scshape\hfill\heading\if@titleinheader\MakeLowercase\@headertitle\else\MakeLowercase\@runningauthor\fi\hfill}}{}{\if@thumbs\makethumb[-1]\fi}
 % \makeoddhead{ruled}{}{}{\small{\heading\scshape\color{black!70}\MakeLowercase{\if@nochapterinheader\else\thechapter\ \   \fi\@jotetitle}\hfill\thepage}}
 
 % \makeevenhead{ruled}{\small{\color{black!70}\scshape\thepage\hfill\heading\if@titleinheader\MakeLowercase\@headertitle\else\MakeLowercase\@runningauthor\fi}}{}{}
 
 \newrobustcmd\B{\DeclareFontSeriesDefault[rm]{bf}{b}\bfseries}
+
 
 
 \makeoddhead{plain}{\makethumb}{}{}
@@ -923,11 +935,11 @@
 % page number of the chapter from the total page number
 % that way every chapter starts at 1`
 \if@perchapterpagenum
-  \makeevenfoot{ruled}{\textsc{\the\numexpr\thepage - \thechapterpgn + 1\relax}}{}{}
-  \makeoddfoot{ruled}{}{}{\textsc{\the\numexpr\thepage - \thechapterpgn + 1\relax}}
+  \makeevenfoot{ruled}{}{\textsc{\the\numexpr\thepage - \thechapterpgn + 1\relax}}{}
+  \makeoddfoot{ruled}{}{\textsc{\the\numexpr\thepage - \thechapterpgn + 1\relax}}{}
 \else
-  \makeevenfoot{ruled}{\textsc{\thepage}}{}{}
-  \makeoddfoot{ruled}{}{}{\textsc{\thepage}}
+  \makeevenfoot{ruled}{}{\textsc{\thepage}}{}
+  \makeoddfoot{ruled}{}{\textsc{\thepage}}{}
 \fi
 
 \if@pagenumside
@@ -940,6 +952,8 @@
   \makeoddfoot{ruled}{}{}{}
 \fi
 
+\makeevenfoot{ruled}{}{\pagenumber}{}
+\makeoddfoot{ruled}{}{\pagenumber}{}
 
 
 \copypagestyle{tussen}{empty}
@@ -962,7 +976,10 @@
       \fi%
       \@authoremail
       \ifdefempty{\@paperdoi}{}{\href{\@paperdoi}{\aiicon{doi}}}%
-      \colorlet{tiu}{tiuold}}}{}{\small\if@chapterhaspagenum \textsc{\thepage}\fi}
+      \colorlet{tiu}{tiuold}}}{\pagenumber}{}
+\makeoddfoot{chapter}{}{\pagenumber}{}
+\makeoddfoot{empty}{}{\pagenumber}{}
+\makeevenfoot{empty}{}{\pagenumber}{}
 
 \if@chapterhaspagenum
   \makeevenfoot{chapter}{\textsc{\small\thepage}}{}{}
@@ -980,13 +997,14 @@
   pdfdisplaydoctitle={true}, pdfdisplaydoctitle={true}, pdfnonfullscreenpagemode={UseOutlines}, pdfcreator={Thomas F.K. Jorna, JOTE Publishers},
 }
 \if@print
-  \hypersetup{colorlinks=true, urlcolor=black, citecolor=black, linkcolor=black}
+  \hypersetup{colorlinks=true, urlcolor=black, citecolor=black, linkcolor=black, breaklinks=true}
 \else
-  \hypersetup{colorlinks=true, urlcolor=tiu, citecolor=tiu, linkcolor=tiu}
+  \hypersetup{colorlinks=true, urlcolor=tiu, citecolor=tiu, linkcolor=tiu, breaklinks=true}
 \fi
 
 %To break long dois
 \RequirePackage{xurl}
+\PassOptionsToPackage{hyphens}{url}
 
 % to insert xmp metadata
 
@@ -1138,7 +1156,7 @@
 \RequirePackage{multirow}
 \RequirePackage{siunitx}
 \RequirePackage{float}
-\RequirePackage[skins,breakable,fitting]{tcolorbox}
+\RequirePackage[skins,breakable,fitting, hooks]{tcolorbox}
 \RequirePackage{ragged2e}
 
 \RequirePackage{afterpage}
@@ -1154,10 +1172,10 @@
 {\RaggedRight \Large   \@booksubtitle}\\[6\onelineskip]
 {\RaggedRight \if@smallauthor\else\Large\fi\textbf{\@bookauthor}} \\[.2\onelineskip]
 \vfill
-\if@print\else\noindent\href{\@bookcontacturl}{\ifdefempty{\@bookversion}{Web version}{\@bookversion}}\\\fi
+\noindent\href{\@bookcontacturl}{\ifdefempty{\@bookversion}{\if@print\else Web version\fi}{\@bookversion}}\\
 \noindent \@bookpublisher {\hfill \ifdefempty{\@bookpublisherlogo}{}{\includegraphics[width=2em]{\@bookpublisherlogo}}}
 \clearpage
-\pagestyle{ruled}
+%\pagestyle{ruled}
 }
 
 \newcommand*\copyrightpage{%
@@ -1187,8 +1205,8 @@
   \vspace*{2\baselineskip}
 
   \begin{tabularx}{\textwidth}{@{} X p{2em} @{}}
-    \noindent Published by \@bookpublisher, & \multirow{3}{*}{\ifdefempty{\@bookpublisherlogo}{}{\includegraphics[width=2em]{\@bookpublisherlogo}}} \\
-    \@bookpublisherlocation                                                                                                                         \\
+    \noindent \@bookpublisher, & \multirow{3}{*}{\ifdefempty{\@bookpublisherlogo}{}{\includegraphics[width=2em]{\@bookpublisherlogo}}} \\
+    \@bookpublisherlocation                                                                                                            \\
     \ifdefempty{\@bookcontacturl}{}{\href{\@bookcontacturl}{\@bookcontacturl}\\}
     \ifdefempty{\@bookcontactemail}{}{\href{mailto:\@bookcontactemail}{\@bookcontactemail}}
   \end{tabularx}
@@ -1251,9 +1269,14 @@
 
 }
 
+% Force url break at hyphens and slashes
+\def\UrlBreaks{\do\/\do-}
+
+
 \RequirePackage{nowidow}
 \setcounter{errorcontextlines}{30}
 \AtBeginDocument{
+  %  \raggedbottom
   %\addtocontents{toc}{\protect\hypersetup{hidelinks}}
   %\renewcommand{\bibname}{References}
   \hypersetup{
@@ -1277,5 +1300,7 @@
   % Orphans are okay, widows arent
   \setnoclub[1]
   \setnowidow[2]
+
+
 
 }
