@@ -519,11 +519,11 @@
 \NewEnviron{takeHomeMessage}{
   \begin{takeHomeFloat}
     \phantomsection
-    \addcontentsline{toc}{section}{Take-home Message}
+    \addcontentsline{toc}{section}{Take-home message}
     \begin{adjustwidth}{\dimexpr-\fullwidthlen\relax}{-2\smallwidth}
       \begin{minipage}{\dimexpr .5\textwidth + \myoddoffset -\smallwidth\relax}
         \renewcommand{\baselinestretch}{1.5}
-        \begin{joteBox}{Take-home Message}
+        \begin{joteBox}{Take-home message}
           % \RaggedRight
           \small
           \BODY
@@ -538,11 +538,11 @@
 \NewEnviron{originalPurpose}{%
   \begin{originalPurposeFloat}
     \phantomsection
-    \addcontentsline{toc}{section}{Original Purpose}
+    \addcontentsline{toc}{section}{Original purpose}
     \begin{adjustwidth}{\dimexpr-\fullwidthlen\relax}{-2\smallwidth}
       \begin{minipage}{\dimexpr .5\textwidth + \myoddoffset -\smallwidth\relax}
         \renewcommand{\baselinestretch}{1.3}
-        \begin{joteBox}{Original Purpose}
+        \begin{joteBox}{Original purpose}
           \small
           \BODY
         \end{joteBox}
