@@ -489,6 +489,23 @@
   borderline east ={1em}{0pt}{joteorange},
 }
 
+\newtcolorbox{erratumbox}{%
+  enhanced,
+  top=\dimexpr.8\smallwidth,
+  bottom=\dimexpr 1.6\smallwidth,
+  left=1.7\smallwidth,
+  right=1.7\smallwidth,
+  colframe=joteOrangeLight,
+  colbacktitle=joteOrangeLight,
+  colback=joteOrangeLight,
+  coltitle=jotedark,
+  fontupper={\openreg \color{jotedark}},
+  fonttitle={\overpass \bfseries \LARGE \color{jotedark}},
+  sharp corners,
+  % look if you have a better idea by all means
+  % no raisebox doesnt work
+  borderline east ={1em}{0pt}{joteorange},
+}
 
 % Takehome message
 \newfloat{takeHomeFloat}{t!}{lop}
@@ -575,6 +592,18 @@
       \BODY
     \end{invitebox}
   \end{invite}
+}
+
+\newfloat{erratum}{b!}{lop}
+
+\NewEnviron{errata}{
+  \begin{erratum}%
+    \begin{erratumbox}
+      \RaggedRight%
+      \vskip.5\smallwidth
+      \BODY
+    \end{erratumbox}
+  \end{erratum}
 }
 
 
